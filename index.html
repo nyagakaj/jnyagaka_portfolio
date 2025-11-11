@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Nyagaka Portfolio</title>
+  <meta name="description" content="John Nyagaka — digital health + AI analyst. Building equitable, data-driven health systems through product, policy, and people." />
+  <meta name="author" content="John Nyagaka" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Light, professional theme ===== */
+    :root{
+      --bg:#f7fafc;           /* page background */
+      --surface:#ffffff;       /* cards, nav */
+      --text:#0f172a;          /* primary text (slate-900) */
+      --muted:#475569;         /* secondary text (slate-600) */
+      --border:#e5e7eb;        /* light border */
+      --brand:#0ea5a8;         /* teal primary */
+      --brand-600:#0891a2;     /* hover */
+      --accent:#7c3aed;        /* purple accent */
+      --nav-h:72px;
+    }
+    html,body{height:100%;scroll-behavior:smooth;}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:
+      radial-gradient(1400px 500px at 20% -10%, rgba(14,165,168,.10), transparent),
+      radial-gradient(1200px 480px at 120% 0%, rgba(124,58,237,.08), transparent),
+      var(--bg);
+      color:var(--text);padding-top:var(--nav-h);}
+
+    /* Navbar */
+    .navbar{background:var(--surface);border-bottom:1px solid var(--border);} 
+    .navbar .navbar-brand{color:var(--text)}
+    .navbar .nav-link{color:var(--muted)!important}
+    .navbar .nav-link.active,.navbar .nav-link:hover{color:var(--text)!important}
+
+    /* Buttons */
+    .btn-brand{--bs-btn-bg:var(--brand);--bs-btn-border-color:var(--brand);--bs-btn-hover-bg:var(--brand-600);--bs-btn-hover-border-color:var(--brand-600);--bs-btn-color:#fff}
+    .btn-ghost{border:1px solid var(--border);color:var(--text);background:#fff}
+
+    /* Pills, badges */
+    .pill{border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem;color:var(--muted);display:inline-flex;gap:.5rem;align-items:center;background:var(--surface)}
+    .badge-skill{background:#ecfeff;color:#065f60;border:1px solid #bae6fd;font-weight:500}
+
+    /* Hero */
+    .hero{position:relative;min-height:84vh;display:grid;place-items:center;padding:4rem 0}
+    .tagline{font-family:JetBrains Mono,monospace;color:#334155}
+
+    /* Sections & cards */
+    .section{padding:5rem 0}
+    .card{background:var(--surface);border:1px solid var(--border);box-shadow:0 6px 24px rgba(2,6,23,.06);border-radius:1rem}
+    h1,h2,h3,h4,h5,h6{color:var(--text)}
+    p,li,small{color:var(--muted)}
+
+    /* Featured tiles (landing sidebar) */
+    .featured-tile{background:#f8fafc;border:1px solid var(--border);transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+    .featured-tile .fw-semibold{color:var(--text)}
+    .featured-tile .small{color:var(--muted)}
+    .featured-tile:hover{transform:translateY(-2px);border-color:#cbd5e1;box-shadow:0 12px 28px rgba(2,6,23,.08)}
+
+    /* Scroll offset so headings aren't hidden under fixed nav */
+    section{scroll-margin-top:calc(var(--nav-h) + 16px);} 
+
+    /* Muted text utility overrides from dark theme leftovers */
+    .text-white-50{color:var(--muted)!important}
+    .small{color:var(--muted)!important}
+
+    /* Modals: keep light */
+    .modal-content{background:var(--surface);color:var(--text)}
+    .modal-header{border-bottom:1px solid var(--border)}
+
+    /* Footer */
+    .footer-note{color:#64748b}
+  </style>
+</head>
+<body id="top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="90" tabindex="0">
+  <!-- NAV -->
+  <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#home"><i class="bi bi-activity me-2 text-info"></i>John Nyagaka</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certs">Certs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO (Landing) -->
+  <header id="home" class="hero container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="pill mb-3"><i class="bi bi-stars text-warning"></i> Data Analytics · Consulting · Digital Health · AI · Strategy</span>
+        <h1 class="display-5 fw-bold mb-3">Building equitable, data‑driven health systems.</h1>
+        <p class="lead mb-4">I translate between <strong>policy</strong>, <strong>product</strong>, and <strong>people</strong> so technology actually works in healthcare and for the social good.</p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a class="btn btn-brand btn-lg" href="#projects"><i class="bi bi-cpu me-2"></i>Explore Projects</a>
+          <a class="btn btn-ghost btn-lg" href="#experience"><i class="bi bi-briefcase me-2"></i>Experience</a>
+          <a class="btn btn-outline-dark btn-lg" href="resume.pdf" target="_blank"><i class="bi bi-download me-2"></i>Résumé</a>
+        </div>
+        <div class="tagline mt-4"><i class="bi bi-arrow-right-circle me-2"></i><span id="rotator">FHIR · Interoperability · Ethical AI · Human‑centred design</span></div>
+      </div>
+      <!-- Featured Project Teasers on Landing -->
+      <div class="col-lg-5">
+        <div class="card p-4">
+          <div class="d-flex align-items-center mb-2"><i class="bi bi-lightning-charge-fill text-info fs-3 me-2"></i><h5 class="mb-0">Featured</h5></div>
+          <div class="small mb-3">A snapshot of what I build — full list below.</div>
+          <div class="d-grid gap-3">
+            <div class="featured-tile p-3 rounded">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">NeuroNav — AI Stroke Rehab</div>
+                  <div class="small">Streamlit · CV · GPT reasoning</div>
+                </div>
+                <a class="btn btn-sm btn-brand" href="#projects">View</a>
+              </div>
+            </div>
+            <div class="featured-tile p-3 rounded">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">MamaTrack — Postnatal Care</div>
+                  <div class="small">Reflex.dev · AI triage</div>
+                </div>
+                <a class="btn btn-sm btn-brand" href="#projects">View</a>
+              </div>
+            </div>
+            <div class="featured-tile p-3 rounded">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">Youth Workforce Dashboard</div>
+                  <div class="small">Power BI · Policy insights</div>
+                </div>
+                <a class="btn btn-sm btn-brand" href="#projects">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS (Full Section) -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-3">
+        <h2 class="fw-bold">Projects & Innovation</h2>
+        <div class="d-flex gap-2 flex-wrap">
+          <span class="pill"><i class="bi bi-award"></i> Impact‑Driven</span>
+          <span class="pill"><i class="bi bi-cpu"></i> AI & CV</span>
+        </div>
+      </div>
+      <div class="row g-4">
+        <!-- NeuroNav -->
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h5 class="mb-1">NeuroNav — AI‑Powered Stroke Rehab Companion</h5>
+                <div class="small mb-2">Harvard Health Systems Innovation Hackathon · 2025</div>
+              </div>
+              <span class="pill"><i class="bi bi-translate"></i> Multilingual · Offline</span>
+            </div>
+            <p class="small mb-3">Streamlit + computer vision + GPT reasoning to guide home therapy, with caregiver dashboard and progress analytics.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+              <span class="badge rounded-pill badge-skill">Streamlit</span>
+              <span class="badge rounded-pill badge-skill">Computer Vision</span>
+              <span class="badge rounded-pill badge-skill">Figma</span>
+            </div>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-brand" href="https://neuronav.lovable.app/" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>
+              <a class="btn btn-sm btn-outline-dark" href="https://github.com/nyagakaj/neuronav.git" target="_blank"><i class="bi bi-github me-1"></i>Code</a>
+              <a class="btn btn-sm btn-ghost" data-bs-toggle="modal" data-bs-target="#neuroModal">Case Study</a>
+            </div>
+          </div>
+        </div>
+        <!-- MamaTrack -->
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h5 class="mb-1">MamaTrack — AI‑Enabled Postnatal Care</h5>
+                <div class="small mb-2">Independent HealthTech · 2025</div>
+              </div>
+              <span class="pill"><i class="bi bi-shield-check"></i> Ethical AI</span>
+            </div>
+            <p class="small mb-3">Reflex.dev prototype for postpartum triage, WHO‑aligned care plans, and CHW escalation.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+              <span class="badge rounded-pill badge-skill">Python</span>
+              <span class="badge rounded-pill badge-skill">Reflex.dev</span>
+              <span class="badge rounded-pill badge-skill">UX Research</span>
+            </div>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-brand" href="https://mama-track-africa.lovable.app" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>
+              <a class="btn btn-sm btn-outline-dark" href="https://github.com/nyagakaj/mama-track-africa.git" target="_blank"><i class="bi bi-github me-1"></i>Code</a>
+              <a class="btn btn-sm btn-ghost" data-bs-toggle="modal" data-bs-target="#mamaModal">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Youth Dashboard -->
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">Youth Unemployment & Health Workforce Dashboard</h5>
+            <div class="small mb-2">Independent · 2024</div>
+            <p class="small mb-3">Interactive analytics on skill gaps and employment barriers across African universities; informed policy dialogues.</p>
+            <div class="d-flex gap-2 flex-wrap mb-3">
+              <span class="badge rounded-pill badge-skill">Power BI</span>
+              <span class="badge rounded-pill badge-skill">DAX</span>
+              <span class="badge rounded-pill badge-skill">Data Storytelling</span>
+            </div>
+            <a class="btn btn-sm btn-brand" href="https://nyagakaj.github.io/ahc_ylt_unemployment_survey_dashboard/" target="_blank"><i class="bi bi-bar-chart-line me-1"></i>View Dashboard</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modals -->
+      <div class="modal fade" id="neuroModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">NeuroNav — Case Study</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li>Problem: Post‑stroke rehab access & adherence gaps in low‑resource contexts.</li>
+                <li>Approach: CV posture tracking + GPT coaching; caregiver insights; offline + multilingual.</li>
+                <li>Impact: Recognized for impact‑driven design; paved path to pilot.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="mamaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">MamaTrack — Notes</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body">
+              <p>WHO‑aligned triage, CHW escalation, and equity‑centred UX for low‑literacy users. Built with Reflex.dev.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-3">
+        <h2 class="fw-bold">Professional Experience</h2>
+        <span class="pill"><i class="bi bi-geo-alt"></i> Canada · Kenya · Ethiopia · Scotland</span>
+      </div>
+      <ul class="nav nav-pills mb-3" id="expTabs" role="tablist">
+        <li class="nav-item" role="presentation"><button class="nav-link active" id="exp-health-tab" data-bs-toggle="tab" data-bs-target="#exp-health" type="button" role="tab">Digital Health</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="exp-edu-tab" data-bs-toggle="tab" data-bs-target="#exp-edu" type="button" role="tab">Education</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="exp-consult-tab" data-bs-toggle="tab" data-bs-target="#exp-consult" type="button" role="tab">Consulting</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" id="exp-ops-tab" data-bs-toggle="tab" data-bs-target="#exp-ops" type="button" role="tab">Operations</button></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="exp-health" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-lg-6"><div class="card p-4 h-100">
+              <div class="d-flex justify-content-between"><h5 class="mb-1">Data Science & Health Informatics Intern</h5><span class="pill">May–Aug 2025</span></div>
+              <div class="small mb-2">Africa CDC · Addis Ababa</div>
+              <ul class="small mb-0">
+                <li>Improved multi‑country data reliability by <strong>40%</strong>; standardized templates across 5 pillars.</li>
+                <li>Built research mapping tool (Python/SQL) for 200 sites; supported CEPI capacity planning.</li>
+                <li>Developed MPOX dashboard; authored emerging‑disease data dictionary.</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="exp-edu" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-lg-6"><div class="card p-4 h-100">
+              <div class="d-flex justify-content-between"><h5 class="mb-1">Senior Fellow & Head of Residence</h5><span class="pill">Jul 2021–Aug 2024</span></div>
+              <div class="small mb-2">Aga Khan Academy · Mombasa</div>
+              <ul class="small mb-0">
+                <li>Service‑learning program for 80+ students/yr; co‑taught CS/Math for 150+ learners.</li>
+                <li>Led 6 staff; achieved <strong>94% participation</strong> in wellbeing & inclusion programs.</li>
+              </ul>
+            </div></div>
+            <div class="col-lg-6"><div class="card p-4 h-100">
+              <div class="d-flex justify-content-between"><h5 class="mb-1">Educator & Program Designer</h5><span class="pill">Jun–Dec 2023</span></div>
+              <div class="small mb-2">Global Encounters · AKDN</div>
+              <ul class="small mb-0">
+                <li>Cross‑cultural service‑learning for 120+ students in 12+ countries; SDG‑aligned projects.</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="exp-consult" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-lg-6"><div class="card p-4 h-100">
+              <div class="d-flex justify-content-between"><h5 class="mb-1">Business Consultant Intern</h5><span class="pill">May–Jul 2019</span></div>
+              <div class="small mb-2">Mastercard Foundation · Edinburgh</div>
+              <ul class="small mb-0">
+                <li>Linked CSR to impact metrics; improved funding by <strong>24%</strong>; built 15+ partnerships.</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="exp-ops" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-lg-6"><div class="card p-4 h-100">
+              <div class="d-flex justify-content-between"><h5 class="mb-1">Service Desk Assistant</h5><span class="pill">Jan 2025–Present</span></div>
+              <div class="small mb-2">UofT Graduate House & Knox College</div>
+              <ul class="small mb-0">
+                <li>Resolved 200+ requests/month; streamlined safety and logistics workflows.</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Education</h2>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">Master of Health Informatics (MHI)</h5>
+            <div class="small mb-2">University of Toronto — IHPME · 2024–2026</div>
+            <p class="small">Multidisciplinary training at the nexus of technology, leadership, and health systems with a focus on equitable transformation.</p>
+            <div class="row small g-2">
+              <div class="col-md-6">
+                <ul class="mb-2">
+                  <li>Evaluation & performance measurement</li>
+                  <li>Systems analysis & Lean/Six Sigma</li>
+                  <li>Interoperability (FHIR), EHRs</li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="mb-2">
+                  <li>Human factors & safety</li>
+                  <li>Data governance & ethical AI</li>
+                  <li>Digital health strategy & policy</li>
+                </ul>
+              </div>
+            </div>
+            <details class="small"><summary class="text-info">Selected projects</summary>
+              <ul>
+                <li><strong>Transfer of Accountability</strong> Figma prototype → −33% data loss, +46% documentation efficiency.</li>
+                <li><strong>Alberta IMIT Strategy</strong> review → governance & integration recommendations.</li>
+                <li><strong>Leadership Portfolio</strong> using Kouzes & Posner — adaptive leadership focus.</li>
+              </ul>
+            </details>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">BSc, Computer Science</h5>
+            <div class="small mb-2">Ashesi University · 2017–2021</div>
+            <p class="small">Ethical leadership + computing. Focus on HCI, algorithms, and entrepreneurship.</p>
+            <ul class="small mb-2">
+              <li>Capstone: ML for clinical trial eligibility to reduce screening time & bias.</li>
+              <li>HCI, Web Tech, DB systems, data structures, design thinking.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-3">
+        <h2 class="fw-bold">Leadership</h2>
+        <span class="pill"><i class="bi bi-people"></i> Team builder · Governance · Mentorship</span>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">Chairperson — Young Leaders Table (AHC)</h5>
+            <div class="small mb-2">2023–Present</div>
+            <ul class="small mb-0">
+              <li>Reorganized multi‑university governance; represented YLT on Executive Steering Committee.</li>
+              <li>Led dialogues for 200+ youth & pros on equity, digital innovation, employment.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">Scholars’ Representative — UofT MCFSP</h5>
+            <div class="small mb-2">2024–Present</div>
+            <ul class="small mb-0">
+              <li>Primary liaison for 40+ scholars; launched monthly Townhalls and onboarding programs.</li>
+              <li>Built feedback loops; improved visibility and participation across the program.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card p-4 h-100">
+            <h5 class="mb-1">Founder — Timiza Initiative</h5>
+            <div class="small mb-2">2015–2019</div>
+            <ul class="small mb-0">
+              <li>Scaled youth‑led nonprofit to 1,200+ beneficiaries across three Kenyan counties.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs" class="section">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Certifications & Professional Development</h2>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card p-4 h-100">
+            <div class="timeline border-start border-2 ps-3">
+              <div class="item mb-3">
+                <h6 class="mb-0">HL7® FHIR Fundamentals — HL7 International (2025)</h6>
+                <div class="small">Interoperability, RESTful APIs, health data modeling.</div>
+              </div>
+              <div class="item mb-3">
+                <h6 class="mb-0">Data Literacy Professional — DataCamp (2025)</h6>
+                <div class="small">Analytical storytelling, data ethics, culture.</div>
+              </div>
+              <div class="item mb-3">
+                <h6 class="mb-0">Intermediate SQL — DataCamp (2025)</h6>
+                <div class="small">Complex joins, window functions, optimization.</div>
+              </div>
+              <div class="item mb-3">
+                <h6 class="mb-0">Intermediate Python — DataCamp (2024)</h6>
+                <div class="small">OOP, automation, data structures.</div>
+              </div>
+              <div class="item mb-3">
+                <h6 class="mb-0">Power BI — Microsoft (2024)</h6>
+                <div class="small">Data modeling, DAX, dashboards.</div>
+              </div>
+              <div class="item">
+                <h6 class="mb-0">Generative AI for Healthcare — Google (2024)</h6>
+                <div class="small">LLM use‑cases, governance, privacy.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card p-4 h-100">
+            <h5 class="mb-3">Signature Strengths</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill badge-skill">Systems Thinking</span>
+              <span class="badge rounded-pill badge-skill">Human‑Centred Design</span>
+              <span class="badge rounded-pill badge-skill">Evidence‑informed Strategy</span>
+              <span class="badge rounded-pill badge-skill">Stakeholder Alignment</span>
+              <span class="badge rounded-pill badge-skill">Public Speaking</span>
+            </div>
+            <hr class="my-3">
+            <p class="small mb-0">Open to internships, fulltime roles (Business Analyst, Data Analyst, Data Scientist) and consulting projects in digital health & AI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FOOTER -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="card p-4">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-8">
+            <h3 class="mb-1">Let’s build smarter, fairer health systems.</h3>
+            <p class="mb-0">Reach out for roles or collabs in digital health & AI.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a class="btn btn-brand btn-lg" href="mailto:johnmonyagaka@gmail.com"><i class="bi bi-envelope me-2"></i>Email Me</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 small footer-note">
+        <div class="d-flex justify-content-center gap-3 mb-2">
+          <a href="https://www.linkedin.com/in/johnyagaka/" class="link-secondary"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/nyagakaj" class="link-secondary"><i class="bi bi-github"></i></a>
+        </div>
+        <div class="pt-3">© <span id="yr"></span> · Designed & coded by John Nyagaka</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Simple text rotator for the hero tagline
+    const phrases = [
+      'FHIR · Interoperability · Ethical AI · Human‑centred design',
+      'From policy → product → practice',
+      'Dashboards that drive decisions (not just views)',
+      'Equity by design — not by afterthought'
+    ];
+    let i = 0;
+    setInterval(()=>{
+      const el = document.getElementById('rotator');
+      if(!el) return;
+      i = (i+1)%phrases.length;
+      el.style.opacity = 0;
+      setTimeout(()=>{ el.textContent = phrases[i]; el.style.opacity = 1; }, 250);
+    }, 3000);
+
+    // Current year in footer
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Activate Bootstrap scrollspy after content load
+    const dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+    dataSpyList.forEach(function (dataSpyEl) {
+      bootstrap.ScrollSpy.getInstance(dataSpyEl) || new bootstrap.ScrollSpy(dataSpyEl)
+    })
+
+    // Ensure nav collapses on click (mobile)
+    document.querySelectorAll('.navbar .nav-link').forEach(link=>{
+      link.addEventListener('click',()=>{
+        const nav = document.getElementById('nav');
+        if(nav && nav.classList.contains('show')){
+          new bootstrap.Collapse(nav).hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
